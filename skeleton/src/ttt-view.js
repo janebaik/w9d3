@@ -1,34 +1,65 @@
 const Game = require("../../solution/game");
 
 class View {
-  constructor($el, game) {
+  constructor(game, $el) {
     // debugger
-    this.game = game || new Game();
-
+    this.game = game;
+    this.$el = $el
     this.setupBoard();
+    this.bindEvents();
   };
 
-  bindEvents() {};
-
-  makeMove($square) {};
+  bindEvents() {
+    this.$el.on('click', 'li' ( event => {
+      const $square = $(event.currentTarget);
+      this.makeMove($square);
+    }));
+  }
+  
+  makeMove($square) {
+    // this.game.playMove($square);
+    
+  };
 
   setupBoard() {
-    const $figure = $('.ttt')
-    // debugger
-    const $row1 = $('<ul class="row"></ul>');
-    const $row2 = $('<ul class="row"></ul>');
-    const $row3 = $('<ul class="row"></ul>');
+    const $el = $('.ttt');
 
-    $figure.append($row1);
-    $figure.append($row2);
-    $figure.append($row3);
-  
-    for (let i = 1; i <= 3; i++) {
-      $row1.append($('<li class="column">1</li>'));
-      $row2.append($('<li class="column">2</li>'));
-      $row3.append($('<li class="column">3</li>'));
+    for (let i = 0; i < 3; i++) {
+      const row = $("<ul class='row'></ul>");
+      for (let x = 0; x < 3; x++) {
+        const square = $("<li class='column'></li>");
+        square.attr("row", i);
+        square.attr("column", x);
+        row.append(square);
+      }
+      this.$el.append(row);
     }
+
+    // const $figure = $('.ttt')
+    // const $row1 = $('<ul class="row"></ul>');
+    // const $row2 = $('<ul class="row"></ul>');
+    // const $row3 = $('<ul class="row"></ul>');
+
+    
+    // for (let i = 0; i < 3; i++) {
+    //   $row1.append($('<li class="column"></li>'));
+    //   $row1.attr("row", i);
+    //   $row1.attr("column", 0);
+      
+    //   $row2.append($('<li class="column"></li>'));
+    //   $row2.attr("row", i);
+    //   $row2.attr("column", 1);
+      
+    //   $row3.append($('<li class="column"></li>'));
+    //   $row3.attr("row", i);
+    //   $row3.attr("column", 2);
+    // };
+
+    // $figure.append($row1);
+    // $figure.append($row2);
+    // $figure.append($row3);
   };
+
 };
 
 module.exports = View;

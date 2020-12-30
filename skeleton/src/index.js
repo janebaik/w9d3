@@ -2,7 +2,9 @@ const View = require ('./ttt-view')
 const Game = require('../../solution/game')
 
   $(() => {
-    const $ttt = $(".ttt");
-    const view = new View();
+    const game = new Game();
+    const container = $(".ttt");//our figure is our container
+    const view = new View(game, container);
+    
     //can also instantiate game here 
   });
