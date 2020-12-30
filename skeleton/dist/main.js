@@ -15,7 +15,7 @@
   \*************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("const Game = __webpack_require__(/*! ../../solution/game */ \"../solution/game.js\");\n\nclass View {\n  constructor($el, game) {\n    this.game = game || new Game();\n  };\n\n  bindEvents() {};\n\n  makeMove($square) {};\n\n  setupBoard() {\n    const figure = $('.ttt')\n    const row1 = $('<ul class=\"row\">')\n    const row2 = $('<ul class=\"row\">')\n    const row3 = $('<ul class=\"row\">')\n\n    figure.append(row1)\n    figure.append(row2)\n    figure.append(row3)\n  };\n};\n\nmodule.exports = View;\n\n\n//# sourceURL=webpack:///./src/ttt-view.js?");
+eval("const Game = __webpack_require__(/*! ../../solution/game */ \"../solution/game.js\");\n\nclass View {\n  constructor($el, game) {\n    // debugger\n    this.game = game || new Game();\n\n    this.setupBoard();\n  };\n\n  bindEvents() {};\n\n  makeMove($square) {};\n\n  setupBoard() {\n    const $figure = $('.ttt')\n    // debugger\n    const $row1 = $('<ul class=\"row\"></ul>');\n    const $row2 = $('<ul class=\"row\"></ul>');\n    const $row3 = $('<ul class=\"row\"></ul>');\n\n    $figure.append($row1);\n    $figure.append($row2);\n    $figure.append($row3);\n    \n    const $column = $('<li class=\"column\"></li>');\n\n    for (let i = 1; i <= 3; i++) {\n      $row1.append($('<li class=\"column\"></li>'));\n      $row2.append($('<li class=\"column\"></li>'));\n      $row3.append($('<li class=\"column\"></li>'));\n    }\n  };\n};\n\nmodule.exports = View;\n\n\n//# sourceURL=webpack:///./src/ttt-view.js?");
 
 /***/ }),
 
@@ -79,7 +79,7 @@ eval("\nconst MoveError = function (msg) { this.msg = msg; };\n\n// MoveError re
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-eval("const View = __webpack_require__ (/*! ./ttt-view */ \"./src/ttt-view.js\")\nconst Game = __webpack_require__(/*! ../../solution/game */ \"../solution/game.js\")\n\n  $(() => {\n    const ttt = document.getElementsByClassName('ttt')\n    //can also instantiate game here \n  });\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("const View = __webpack_require__ (/*! ./ttt-view */ \"./src/ttt-view.js\")\nconst Game = __webpack_require__(/*! ../../solution/game */ \"../solution/game.js\")\n\n  $(() => {\n    const $ttt = $(\".ttt\");\n    const view = new View();\n    //can also instantiate game here \n  });\n\n\n//# sourceURL=webpack:///./src/index.js?");
 })();
 
 /******/ })()
