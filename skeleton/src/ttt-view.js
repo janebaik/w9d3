@@ -22,9 +22,7 @@ class View {
     $figure.append($row1);
     $figure.append($row2);
     $figure.append($row3);
-    
-    const $column = $('<li class="column"></li>');
-
+  
     for (let i = 1; i <= 3; i++) {
       $row1.append($('<li class="column"></li>'));
       $row2.append($('<li class="column"></li>'));
