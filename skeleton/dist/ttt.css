@@ -1,19 +1,23 @@
 .row{
     display: flex;
-    background-color:blue;
-    border: 3px solid gray;
     /* list-style-type: none; */
+    margin:0px;
+    padding:0px;
+    list-style-position: inside;
+    list-style: none;
+
     
 }
 
 .column{
     flex-wrap: wrap;
     border: 2px solid lightcoral;
-    background-color: lightcyan;
+    /* background-color: lightcyan; */
     width: 33%;
     /* padding: 10px; */
-    list-style-position: inside;
+    /* list-style-position: inside; */
+    /* list-style: none; */
 
 }
 
-
+ul{}
